@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4238220744971648099}
   - component: {fileID: -867747408388297011}
+  - component: {fileID: 6161403625327920664}
   m_Layer: 0
   m_Name: pfWoodResourceNode
   m_TagString: Untagged
@@ -46,6 +47,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: {fileID: 11400000, guid: ccd544ab80d195a45b0ca16b1df18259, type: 2}
+--- !u!58 &6161403625327920664
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283730931822372674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2925651, y: -2.2876961}
+  serializedVersion: 2
+  m_Radius: 0.34965396
 --- !u!1001 &4299688687654429375
 PrefabInstance:
   m_ObjectHideFlags: 0
