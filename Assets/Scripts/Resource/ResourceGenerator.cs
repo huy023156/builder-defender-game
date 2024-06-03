@@ -28,6 +28,8 @@ public class ResourceGenerator : MonoBehaviour
             timer = timerMax;
         }
 
+        Debug.Log(GetEfficiency());
+
     }
 
     public float GetEfficiency()
@@ -53,6 +55,8 @@ public class ResourceGenerator : MonoBehaviour
     {
         float efficiency = GetEfficiency();
 
-        return 1 / (efficiency * (1 / buildingType.resourceGeneratorData.timerMax));
+        float generatorTimerMax = 1 / (efficiency * (1 / buildingType.resourceGeneratorData.timerMax));
+
+        return generatorTimerMax;
     }
 }
