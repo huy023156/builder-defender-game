@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ResourceGenerator : MonoBehaviour
@@ -20,16 +21,18 @@ public class ResourceGenerator : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer < 0)
+        if (GetEfficiency() > 0)
         {
-            ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);   
-            timer = timerMax;
+            timer -= Time.deltaTime;
+
+            if (timer < 0)
+            {
+                ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);
+                timer = timerMax;
+            }
+
+            Debug.Log(GetEfficiency());
         }
-
-        Debug.Log(GetEfficiency());
-
     }
 
     public float GetEfficiency()
