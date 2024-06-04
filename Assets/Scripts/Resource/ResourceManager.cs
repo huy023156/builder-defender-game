@@ -18,15 +18,12 @@ public class ResourceManager : MonoBehaviour
 
         foreach (ResourceTypeSO resourceType in resourceTypeList.list)
         {
-            resourceTypeAmountDictionary[resourceType] = 0;
+            resourceTypeAmountDictionary[resourceType] = 100;
         }
     }
 
     private void Update()
     {
-        foreach (ResourceTypeSO resourceType in resourceTypeList.list)
-        {
-        }
     }
 
     public void AddResource(ResourceTypeSO resourceType, int amount)
@@ -37,5 +34,28 @@ public class ResourceManager : MonoBehaviour
     public int GetResourceAmount(ResourceTypeSO resourceType)
     {
         return resourceTypeAmountDictionary[resourceType];
+    }
+
+    public bool CanAfford(BuildingTypeSO buildingType) 
+    {
+        foreach (ResourceAmount resourceAmount in buildingType.constructionResourceCostArray) {
+            if (resourceAmount.amount > resourceTypeAmountDictionary[resourceAmount.resourceType])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void SpendResources(BuildingTypeSO buildingType)
+    {
+        foreach (ResourceAmount resourceAmount in buildingType.constructionResourceCostArray)
+        {
+            if (resourceAmount.amount < resourceTypeAmountDictionary[resourceAmount.resourceType])
+            {
+                resourceTypeAmountDictionary[resourceAmount.resourceType] -= resourceAmount.amount;
+            }
+        }
     }
 }
