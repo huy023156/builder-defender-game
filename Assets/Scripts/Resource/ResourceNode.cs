@@ -6,4 +6,9 @@ public class ResourceNode : MonoBehaviour
 {
     [SerializeField]
     private ResourceTypeSO resourceType;
+
+    public ResourceTypeSO GetResourceType()
+    {
+        return resourceType;
+    }
 }

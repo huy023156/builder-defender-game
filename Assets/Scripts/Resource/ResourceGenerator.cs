@@ -43,9 +43,13 @@ public class ResourceGenerator : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<ResourceNode>())
+            ResourceNode resourceNode = collider.GetComponent<ResourceNode>();
+
+            if (resourceNode != null)
             {
-                detected++;
+                if (resourceNode.GetResourceType() == buildingType.resourceGeneratorData.resourceType) {
+                    detected++;
+                }
             }
         }
 

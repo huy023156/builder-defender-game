@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -7811923664926322345}
   - component: {fileID: 8842642101008488184}
   - component: {fileID: 5319492181303600786}
+  - component: {fileID: 6212058121376747634}
   m_Layer: 0
   m_Name: pfStoneHarvester
   m_TagString: Untagged
@@ -105,6 +106,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.7176056, y: 3.869877}
   m_EdgeRadius: 0
+--- !u!114 &6212058121376747634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970947502945739541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96153b79efb4b4468544f99367754bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6327453829607754460
 GameObject:
   m_ObjectHideFlags: 0

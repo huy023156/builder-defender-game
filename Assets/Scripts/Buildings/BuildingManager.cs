@@ -27,12 +27,91 @@ public class BuildingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && activeBuildingType != null)
         {
-            if (activeBuildingType != null)
+            if (IsAreaCleared())
             {
-                Instantiate(activeBuildingType.prefab, UtilClass.GetMouseWorldPosition(), Quaternion.identity);
+                if (IsNearOtherBuilding())
+                {
+                    if (!IsNearOtherBuildingOfTheSameType())
+                    {
+                        if (activeBuildingType != null)
+                        {
+                            Instantiate(activeBuildingType.prefab, UtilClass.GetMouseWorldPosition(), Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        // too near to a building of the same type
+                        Debug.Log("too near to a building of the same type");
+
+                    }
+                }
+                else
+                {
+                    // not near any building
+                    Debug.Log("not near any building");
+                }
+            }
+            else
+            {
+                // area is not clear
+                Debug.Log("area is not clear");
             }
         }
+    }
+
+    private bool IsAreaCleared()
+    {
+        float distanceCheck = 4f;
+
+        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(UtilClass.GetMouseWorldPosition(), distanceCheck);
+
+        foreach (Collider2D collider2D in collider2DArray)
+        {
+            if (collider2D.GetComponent<Building>() != null || collider2D.GetComponent<ResourceNode>() != null)
+            {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+    private bool IsNearOtherBuilding()
+    {
+        if (activeBuildingType == null) return false;
+
+        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(UtilClass.GetMouseWorldPosition(), activeBuildingType.minConstructionRadius);
+
+        foreach (Collider2D collider in collider2DArray)
+        {
+            if (collider.GetComponent<Building>() != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsNearOtherBuildingOfTheSameType()
+    {
+        float distanceCheck = 10f;
+
+        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(UtilClass.GetMouseWorldPosition(), distanceCheck);
+
+        foreach (Collider2D collider2D in collider2DArray)
+        {
+            if (collider2D.GetComponent<BuildingTypeHolder>() != null)
+            {
+                if (collider2D.GetComponent<BuildingTypeHolder>().buildingType == activeBuildingType)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
