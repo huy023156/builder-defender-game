@@ -22,7 +22,7 @@ public class ResourceAmountUI : MonoBehaviour
         resourceTypeList = Resources.Load<ResourceTypeListSO>("ResourceTypeListSO");
 
         int n = 0;
-        int right = 180;
+        int right = 120;
 
 
         foreach (ResourceTypeSO resourceType in resourceTypeList.list)

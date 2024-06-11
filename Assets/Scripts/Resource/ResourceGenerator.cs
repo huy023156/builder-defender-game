@@ -16,7 +16,6 @@ public class ResourceGenerator : MonoBehaviour
         buildingType = GetComponent<BuildingTypeHolder>().buildingType;
 
         timerMax = GetGeneratorTimerMax();
-        Debug.Log(timerMax);
     }
 
     private void Update()
@@ -30,8 +29,6 @@ public class ResourceGenerator : MonoBehaviour
                 ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);
                 timer = timerMax;
             }
-
-            Debug.Log(GetEfficiency());
         }
     }
 

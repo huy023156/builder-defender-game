@@ -36,9 +36,9 @@ public class ResourceManager : MonoBehaviour
         return resourceTypeAmountDictionary[resourceType];
     }
 
-    public bool CanAfford(BuildingTypeSO buildingType) 
+    public bool CanAfford(ResourceAmount[] constructionResourceCostArray) 
     {
-        foreach (ResourceAmount resourceAmount in buildingType.constructionResourceCostArray) {
+        foreach (ResourceAmount resourceAmount in constructionResourceCostArray) {
             if (resourceAmount.amount > resourceTypeAmountDictionary[resourceAmount.resourceType])
             {
                 return false;

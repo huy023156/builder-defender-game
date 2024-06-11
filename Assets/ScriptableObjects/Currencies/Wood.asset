@@ -15,4 +15,4 @@ MonoBehaviour:
   nameString: Wood
   nameShort: W
   sprite: {fileID: 21300000, guid: 435923c28bea64a49acab718585ace83, type: 3}
-  colorHex: 
+  colorHex: D9D15D

@@ -38,7 +38,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
         buildingTypeList = Resources.Load<BuildingTypeListSO>("BuildingTypeListSO");
 
         int n = 0;
-        int left = 180;
+        int left = 140;
 
         arrowRectTransform = Instantiate(btnTemplate, transform);
         arrowRectTransform.gameObject.SetActive(true);
@@ -67,6 +67,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             btn.transform.Find("image").GetComponent<Image>().sprite = buildingType.sprite;
             btn.anchoredPosition = new Vector2(left * n, btn.anchoredPosition.y);
+            btn.Find("selected").gameObject.SetActive(false);
 
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -81,6 +82,13 @@ public class BuildingTypeSelectUI : MonoBehaviour
                 activeBuildingType = buildingType;
                 OnActiveBuildingTypeChanged?.Invoke(this, new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType });
             });
+
+            btn.GetComponent<MouseEnterExitEvents>().OnMouseEnter += (object sender, EventArgs e) => {
+                TooltipUI.Instance.Show(buildingType.name, 10);
+            };
+            btn.GetComponent<MouseEnterExitEvents>().OnMouseExit += (object sender, EventArgs e) => {
+                TooltipUI.Instance.Hide();
+            };
 
             buildingTypeButtonDictionary[buildingType] = btn;
             btn.SetParent(transform);
