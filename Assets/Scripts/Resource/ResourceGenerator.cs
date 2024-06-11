@@ -63,4 +63,9 @@ public class ResourceGenerator : MonoBehaviour
 
         return generatorTimerMax;
     }
+
+    public float GetTimerMax()
+    {
+        return timerMax;
+    }
 }
