@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67244c50d27be3148a9be10c31f2cf1c, type: 3}
-  m_Name: WoodHarvester
+  m_Name: HQ
   m_EditorClassIdentifier: 
-  nameString: Wood Harvester
-  prefab: {fileID: 4110029116224088473, guid: fb6df137214ba1e4fae9c50ae4801729, type: 3}
+  nameString: HQ
+  prefab: {fileID: 4110029116224088473, guid: 2263d73d11879fc4383317c11fa5556a, type: 3}
   hasResourceGeneratorData: 1
   resourceGeneratorData:
-    timerMax: 1
+    timerMax: 0.5
     resourceType: {fileID: 11400000, guid: ccd544ab80d195a45b0ca16b1df18259, type: 2}
-    resourceDetectionRadius: 8
-    maxResourceAmount: 7
-  sprite: {fileID: 21300000, guid: 21f9bfcf4b3340c4f8fb5eef4dc938a5, type: 3}
-  minConstructionRadius: 25
-  constructionResourceCostArray:
-  - resourceType: {fileID: 11400000, guid: ccd544ab80d195a45b0ca16b1df18259, type: 2}
-    amount: 10
+    resourceDetectionRadius: 10
+    maxResourceAmount: 4
+  sprite: {fileID: 21300000, guid: 008b0c59ec0e8d84bb3f6c418516854c, type: 3}
+  minConstructionRadius: 0
+  constructionResourceCostArray: []
   healthAmountMax: 100
   constructionTimerMax: 0

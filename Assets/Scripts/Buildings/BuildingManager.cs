@@ -9,6 +9,9 @@ public class BuildingManager : MonoBehaviour
 
     private BuildingTypeSO activeBuildingType;
 
+    [SerializeField]
+    private Transform HQTransform;
+
     private void Awake()
     {
         Instance = this;
@@ -96,5 +99,10 @@ public class BuildingManager : MonoBehaviour
         
         errorMessage = null;
         return true;
+    }
+
+    public Transform GetHQTransform()
+    {
+        return HQTransform;
     }
 }
